@@ -50,10 +50,12 @@ class MainFrame(ctk.CTkFrame):
             wrap="none"
         )
 
+
         self.menu = ctk.CTkOptionMenu(
             master=self.menu_frame,
-            values=["File", "Save"],
-            command=self.option_menu_callback
+            values=["Open","Save"],
+            command=self.option_menu_callback,
+            variable=ctk.StringVar(value="File")
         )
 
     def setup_layout(self) -> None:
@@ -71,7 +73,7 @@ class MainFrame(ctk.CTkFrame):
         self.menu.pack(side="left")
         self.text_widget.pack(expand=True, fill="both")
 
-    def option_menu_callback(choice):
+    def option_menu_callback(self, choice):
         print(f"Choice: {choice}")
 
 
